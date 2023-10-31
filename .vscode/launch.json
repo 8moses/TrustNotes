@@ -1,0 +1,68 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "yas_pagina",
+            "cwd": "yas_pagina",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "yas_pagina (profile mode)",
+            "cwd": "yas_pagina",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "yas_pagina (release mode)",
+            "cwd": "yas_pagina",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "login_pagina",
+            "cwd": "filesMo\\login_pagina",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "login_pagina (profile mode)",
+            "cwd": "filesMo\\login_pagina",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "login_pagina (release mode)",
+            "cwd": "filesMo\\login_pagina",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "paginasmoses",
+            "cwd": "filesmoses\\paginasmoses",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "paginasmoses (profile mode)",
+            "cwd": "filesmoses\\paginasmoses",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "paginasmoses (release mode)",
+            "cwd": "filesmoses\\paginasmoses",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
