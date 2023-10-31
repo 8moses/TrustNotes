@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.black,
         body: Center(
@@ -20,10 +21,28 @@ class MyApp extends StatelessWidget {
             width: 300,
             color: Colors.white,
             padding: EdgeInsets.all(25),
-            child: TextField(
-              decoration: InputDecoration(
-                labelText: 'Username',
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                TextField(
+                  decoration: InputDecoration(
+                    labelText: 'Username',
+                  ),
+                ),
+                TextField(
+                  decoration: InputDecoration(
+                    labelText: 'Password',
+                  ),
+                ),
+                TextButton(
+                  style: ButtonStyle(
+                    foregroundColor:
+                        MaterialStateProperty.all<Color>(Colors.blue),
+                  ),
+                  onPressed: () {},
+                  child: Text('LOGIN'),
+                )
+              ],
             ),
           ),
         ),
