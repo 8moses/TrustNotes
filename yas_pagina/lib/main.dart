@@ -1,6 +1,5 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
+import 'page2.dart'; // Replace with the correct path to your Page2 file
 
 void main() {
   runApp(MyApp());
@@ -25,26 +24,14 @@ class HomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Stack(
-              alignment: Alignment.center,
-              children: [
-                Image.asset('lib/images/trustnote.png'),
-                Positioned(
-                  top: 10, // Adjust the top value for positioning
-                  child: Text(
-                    'Welcome to',
-                    style: TextStyle(
-                      fontSize: 24,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ],
-            ),
+            Image.asset('lib/images/trustnote.png'),
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Add functionality for the "Begin" button here
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Page2()),
+                );
               },
               style: ElevatedButton.styleFrom(
                 primary: Colors.black,
@@ -54,10 +41,7 @@ class HomePage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(25.0),
                 ),
               ),
-              child: Text(
-                'Begin',
-                style: TextStyle(fontSize: 18),
-              ),
+              child: Text('Begin', style: TextStyle(fontSize: 18)),
             ),
           ],
         ),
