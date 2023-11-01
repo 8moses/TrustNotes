@@ -1,8 +1,19 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors
+
 
 import 'package:flutter/material.dart';
+import 'paginas/login_pagina.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  try {
+  await Firebase.initializeApp();
+} catch (e) {
+  print('Error initializing Firebase: $e');
+}
+
+
   runApp(const MyApp());
 }
 
@@ -13,40 +24,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: Colors.black,
-        body: Center(
-          child: Container(
-            height: 300,
-            width: 300,
-            color: Colors.white,
-            padding: EdgeInsets.all(25),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                TextField(
-                  decoration: InputDecoration(
-                    labelText: 'Username',
-                  ),
-                ),
-                TextField(
-                  decoration: InputDecoration(
-                    labelText: 'Password',
-                  ),
-                ),
-                TextButton(
-                  style: ButtonStyle(
-                    foregroundColor:
-                        MaterialStateProperty.all<Color>(Colors.blue),
-                  ),
-                  onPressed: () {},
-                  child: Text('LOGIN'),
-                )
-              ],
-            ),
-          ),
-        ),
-      ),
+      home: LoginPagina(),
     );
   }
 }
