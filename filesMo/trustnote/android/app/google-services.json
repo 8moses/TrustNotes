@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "193149892236",
+    "project_id": "trustnote-d4647",
+    "storage_bucket": "trustnote-d4647.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:193149892236:android:b1e13000d1adab4ad02da9",
+        "android_client_info": {
+          "package_name": "com.example.trustnote"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZ8PNgbtUrJE7UZjb48tgq1qZcHq1IXs0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
