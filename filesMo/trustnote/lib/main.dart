@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'login pagina',
       home: const MyWidget(),
-      
+        
     );
   }
 }
@@ -63,9 +63,19 @@ class _MyWidgetState extends State<MyWidget> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: _user == null ? const StartPage() : const HomePage(),
-    );
+Widget build(BuildContext context) {
+  Widget pagina;
+
+  if (_user == null) {
+    // If no user is logged in, show the StartPage
+    pagina = const StartPage();
+  } else {
+    // If a user is logged in, show the HomePage
+    pagina = const HomePage();
   }
+
+  return Scaffold(
+    body: pagina,
+  );
+}
 }

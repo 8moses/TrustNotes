@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:trustnoterl/utils/common.dart';
+import 'package:paginayasmine/utils/common.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
