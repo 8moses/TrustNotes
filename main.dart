@@ -1,233 +1,155 @@
+// ignore_for_file: prefer_const_constructors, library_private_types_in_public_api, deprecated_member_use, use_key_in_widget_constructors, prefer_final_fields
+
 import 'package:flutter/material.dart';
-import 'package:test/TorD.dart';
-
-void main() {
-  runApp(
-    MaterialApp(
+ 
+void main() => runApp(MyApp());
+ 
+ 
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Page Navigation",
-      home: FirstPage(),
+      title: 'Text on Wall',
       theme: ThemeData(
-        scaffoldBackgroundColor: Color.fromARGB(255, 28, 28, 28),
-      ),
-    ),
-  );
-}
-
-class FirstPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("T R U S T   N O T E"),
-        backgroundColor: Color.fromARGB(255, 28, 28, 28),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(height: 0),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Brickwall()),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Color.fromARGB(255, 0, 0, 0),
-                minimumSize: Size(320, 80),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
-                ),
-              ),
-              child: Text('B R I C K W A L L'),
-            ),
-            SizedBox(height: 10),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => TorD()),
-                );
-                // Add the logic for the second button
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Color.fromARGB(255, 0, 0, 0),
-                minimumSize: Size(320, 80),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
-                ),
-              ),
-              child: Text('T R U T H  or  D A R E'),
-            ),
-            SizedBox(height: 10),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => WMLT()),
-                );
-                // Add the logic for the third button
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Color.fromARGB(255, 0, 0, 0),
-                minimumSize: Size(320, 80),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
-                ),
-              ),
-              child: Text("W H O'S  M O S T  L I K E L Y  T O ?"),
-            ),
-            SizedBox(height: 50),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Exclusive()),
-                );
-                // Add the logic for the fourth button
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Color.fromARGB(255, 0, 0, 0),
-                minimumSize: Size(320, 80),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
-                ),
-              ),
-              child: Text('E X C L U S I V E -20%'),
-            ),
-          ],
+        primarySwatch: Colors.grey,
+        textTheme: TextTheme(
+          bodyText1: TextStyle(color: Colors.white),
+          bodyText2: TextStyle(color: Colors.white),
         ),
       ),
+      home: MyHomePage(),
     );
   }
 }
-
-//begin T R U T H  or  D A R E
-
-class TorD extends StatelessWidget {
+ 
+class MyHomePage extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("T R U T H  or  D A R E")),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('This is Page 3'),
-            SizedBox(height: 20),
-            ElevatedButton(
+  _MyHomePageState createState() => _MyHomePageState();
+}
+ 
+class ImageTextItem {
+  String imageUrl;
+  String text;
+ 
+  ImageTextItem(this.imageUrl, this.text);
+}
+ 
+class _MyHomePageState extends State<MyHomePage> {
+  final TextEditingController _controller = TextEditingController();
+  List<ImageTextItem> _items = [];
+ 
+  void _addImageTextItem() {
+    setState(() {
+      _items.add(ImageTextItem('lib/img/post-it.png', _controller.text));
+      _controller.clear();
+    });
+  }
+ 
+  void _showTextDialog(String text) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Je challenge is...'),
+          content: Text(text),
+          actions: <Widget>[
+            TextButton(
+              child: Text('Sluiten'),
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.of(context).pop();
               },
-              style: ElevatedButton.styleFrom(
-                primary: Colors.blue,
-              ),
-              child: Text('Go Back to Page 1'),
             ),
           ],
-        ),
-      ),
+        );
+      },
     );
   }
-}
-
-// begin W H O'S  M O S T  L I K E L Y  T O ?
-
-class WMLT extends StatelessWidget {
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("W H O'S  M O S T  L I K E L Y  T O ?")),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('This is Page 3'),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Colors.blue,
+      appBar: AppBar(title: Text('B R I C K  W A L L')),
+      body: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('lib/img/figma.png'),
+                fit: BoxFit.cover,
               ),
-              child: Text('Go Back to Page 1'),
             ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-//begin E X C L U S I V E
-
-class Exclusive extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("E X C L U S I V E")),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('This is Page 3'),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Colors.blue,
+          ),
+          Container(
+            color: Colors.black.withOpacity(0.5),
+          ),
+          Column(
+            children: [
+              Expanded(
+                child: GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 4, // Aantal kolommen
+                    crossAxisSpacing: 5, // Ruimte tussen kolommen
+                    mainAxisSpacing: 5, // Ruimte tussen rijen
+                  ),
+                  itemCount: _items.length,
+                  itemBuilder: (context, index) {
+                    return GestureDetector(
+                      onTap: () => _showTextDialog(_items[index].text),
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Align(
+                            alignment: Alignment.topLeft,
+                            child: Container(
+                              width: 100.0,
+                              padding: EdgeInsets.all(20.0),
+                              child: Image.asset(_items[index].imageUrl, fit: BoxFit.contain),
+                            ),
+                          ),
+                          Positioned(
+                            right: 30,
+                            bottom: 25,
+                            child: Container(
+                              padding: EdgeInsets.all(8),
+                              child: Text(
+                                '${index + 1}',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                ),
               ),
-              child: Text('Go Back to Page 1'),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-//begin B R I C K W A L L
-
-class Brickwall extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("B R I C K W A L L")),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('This is Page 2'),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Colors.red,
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: TextField(
+                  controller: _controller,
+                  decoration: InputDecoration(labelText: 'Typ hier...', labelStyle: TextStyle(color: Colors.white)),
+                  style: TextStyle(color: Colors.white),
+                  cursorColor: Colors.white,
+                ),
               ),
-              child: Text('G O  B A C K  T O  H O M E'),
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Brickwall()),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Colors.green,
+              Align(
+                alignment: Alignment.bottomRight,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 10.0, left: 20.0, right: 20.0, bottom: 40.0),
+                  child: ElevatedButton(
+                    onPressed: _addImageTextItem,
+                    child: Text('Posten'),
+                  ),
+                ),
               ),
-              child: Text('Hello World'),
-            ),
-          ],
-        ),
+            ],
+          ),
+        ],
       ),
     );
   }
