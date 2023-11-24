@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:trustnote/pages/home_page.dart';
+
 import 'package:trustnote/utils/common.dart';
 import 'package:trustnote/pages/start_page.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -71,7 +73,7 @@ Widget build(BuildContext context) {
     pagina = const StartPage();
   } else {
     // If a user is logged in, show the HomePage
-    pagina = const HomePage();
+    pagina = const PostItNotePage();
   }
 
   return Scaffold(

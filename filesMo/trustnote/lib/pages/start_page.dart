@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:trustnote/utils/common.dart';
 
@@ -75,7 +77,7 @@ class _StartPageState extends State<StartPage> {
                   ),
                   SizedBox(height: 8), // Spacing between fields
                   // Password
-                  Container(
+                  SizedBox(
                     width: 150,
                     child: TextFormField(
                       validator: (value) {
